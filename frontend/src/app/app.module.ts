@@ -13,11 +13,13 @@ import { MatCardModule } from '@angular/material/card';
 import { CreateAccountComponent } from './forms/create-account/create-account.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { JobOfferComponent } from './offers/job-offer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateAccountComponent,
+    JobOfferComponent,
   ],
   imports: [
     BrowserModule,
