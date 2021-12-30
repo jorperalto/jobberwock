@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './users/user.entity';
+import { Offer } from './offers/offer.entity';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { User } from './users/user.entity';
       username: 'root',
       password: 'password',
       database: 'jobberwock',
-      entities: [User],
+      entities: [User, Offer],
       synchronize: true,
     }),
   ],
