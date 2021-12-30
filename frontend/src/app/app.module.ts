@@ -14,6 +14,9 @@ import { CreateAccountComponent } from './forms/create-account/create-account.co
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { JobOfferComponent } from './offers/job-offer.component';
+import { AuthService } from './auth/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { JobOfferComponent } from './offers/job-offer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -32,7 +36,7 @@ import { JobOfferComponent } from './offers/job-offer.component';
     MatInputModule,
     MatFormFieldModule,
   ],
-  providers: [],
+  providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
